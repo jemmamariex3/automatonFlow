@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Automaton Flow Viewer</title>
+        <link rel="stylesheet" type="text/css" href="./src/css/styles.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="node_body">
+                <div class="node_button" id="node_btn"></div>
+                <div class="node_div" id="node_div">
+                    <!-- <div class="node_button" id="node_btn"></div>
+                    <div class="node_div" id="node_div">
+
+                    </div> -->
+                </div>
+            </div>
+            <!-- Goal: 
+            load number of divs depending on the object
+            create a div named "node_body" and add a button class node_button on click 
+                this expends the contents of the object-->
+        </div>
+        <script>
+
+        function addDivClick() {
+            const clickDiv = document.querySelector(".node_button"); 
+
+            clickDiv.addEventListener("click", (e) => {
+                var div = document.createElement('div');
+                div.style.backgroundColor = "black";
+                div.style.width = "150px";
+                div.style.height = "50px";
+                div.style.margin = "15px";
+                div.className = "node_button";
+
+                document.getElementsByClassName('node_div')[0].appendChild(div);
+                console.log("current target div has been clicked: ", e.currentTarget); 
+            })
+            // createNodeDiv();    
+        }
+        // function createNodeDiv() {
+        //     var divNode = document.createElement('div');
+        //         divNode.style.backgroundColor = "pink";
+        //         divNode.style.width = "150px";
+        //         divNode.style.height = "50px";
+        //         divNode.style.margin = "15px";
+        //         divNode.className = "node_added";
+
+        //         document.getElementsByClassName('node_div')[0].appendChild(divNode);
+        //         console.log("current target div has been clicked: ", e.currentTarget); 
+        // }
+
+        addDivClick();
+        </script>
+    </body>
+</html>
