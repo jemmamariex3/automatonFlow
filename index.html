@@ -3,54 +3,82 @@
     <head>
         <title>Automaton Flow Viewer</title>
         <link rel="stylesheet" type="text/css" href="./src/css/styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     </head>
     <body>
         <div class="container">
+            <!-- Sample Structure
             <div class="node_body">
-                <div class="node_button" id="node_btn"></div>
-                <div class="node_div" id="node_div">
-                    <!-- <div class="node_button" id="node_btn"></div>
-                    <div class="node_div" id="node_div">
-
-                    </div> -->
-                </div>
-            </div>
-            <!-- Goal: 
-            load number of divs depending on the object
-            create a div named "node_body" and add a button class node_button on click 
-                this expends the contents of the object-->
+                <div class="node_main"></div>
+                <div class="node_div"></div>
+            </div> -->
         </div>
         <script>
+        // Using a JS object,
+        // find the length/size of the object,
+        // in for loop or for each, create that many divs on click
 
-        function addDivClick() {
-            const clickDiv = document.querySelector(".node_button"); 
+        // when one of those divs are clicked, expand the divs right and output number of divs according to size of that object
+            
+            var sample = [
+                person = {
+                    firstName: "John",
+                    lastName: "Doe",
+                    age: 50,
+                    eyeColor: "blue"
+                },
+                person2 = {
+                    firstName: "Kevin",
+                    lastName: "Ray",
+                    age: 52,
+                    eyeColor: "blue"
+                },
+                person3 = {
+                    firstName: "Peter",
+                    lastName: "Me",
+                    age: 54,
+                    eyeColor: "blue"
+                }
+            ]
 
-            clickDiv.addEventListener("click", (e) => {
-                var div = document.createElement('div');
-                div.style.backgroundColor = "black";
-                div.style.width = "150px";
-                div.style.height = "50px";
-                div.style.margin = "15px";
-                div.className = "node_button";
+            var sampleLen = 0;
+            
+            for(var i = 0; i < sample.length; i ++){
+                sampleLen++;
+            }
+            console.log(sampleLen);
 
-                document.getElementsByClassName('node_div')[0].appendChild(div);
-                console.log("current target div has been clicked: ", e.currentTarget); 
-            })
-            // createNodeDiv();    
-        }
-        // function createNodeDiv() {
-        //     var divNode = document.createElement('div');
-        //         divNode.style.backgroundColor = "pink";
-        //         divNode.style.width = "150px";
-        //         divNode.style.height = "50px";
-        //         divNode.style.margin = "15px";
-        //         divNode.className = "node_added";
+            //dynamically adds 3 node body containers in container class
+            for(var j = 0; j < sampleLen; j++){
+                var node_body = document.createElement('div');
+                node_body.className = "node_body";                
+                $(".container").append(node_body);
+            }
+            
+            //To Do: append node_main into node_body
+            //should only be one node_main for every node_body
+            
+            // var node_main = document.createElement('div');
+            //     node_main.className = "node_main";
+            //     $(".node_body").append(node_main);
 
-        //         document.getElementsByClassName('node_div')[0].appendChild(divNode);
-        //         console.log("current target div has been clicked: ", e.currentTarget); 
-        // }
+        $(document).on('click','.node_main',function(e){
+            var target = $(e.target);    
 
-        addDivClick();
+            var divAdd = document.createElement('div');
+            divAdd.className = "node_added";
+            // $(".node_div").append(divAdd);
+
+
+            //consoles out the selected element
+            document.getElementsByClassName('node_div')[0].appendChild(div);
+            console.log("current target div has been clicked: ", e.currentTarget); 
+
+            //checks to see if the div clicked has the parent node called node_div
+            if (target.parents('div.node_div').length) {
+                alert('Your clicked element is having div.node_div as parent');
+            }
+        })
         </script>
     </body>
 </html>
