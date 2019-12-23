@@ -25,10 +25,12 @@ body{
     height: 50px;
     margin: 15px;
     background-color: coral;
+    resize: both;
+    
 }
 .node_added{
     width: 150px;
     height: 50px;
     margin: 15px;
-    background-color: black;
+    background-color: gray;
 }
